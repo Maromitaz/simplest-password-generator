@@ -1,4 +1,4 @@
-import random, os, platform
+import random, os, subprocess
 # The generator
 list_base = ['a', 'A', 'b', 'B', 'c', 'C', 'd', 'D', 'e', 'E', 'f', 'F', 'g', 'G', 'h', 'H', 'i', 'I', 'j', 'J', 'k', 'K', 'l', 'L', 'm', 'M', 'n', 'N', 'o', 'O', 'p', 'P', 'q', 'Q', 'r', 'R', 's', 'S', 't', 'T', 'u', 'U', 'v', 'V', 'w', 'W', 'x', 'X', 'y', 'Y', 'z', 'Z', '1', '2', '3', '4', '5', '6', '7', '8', '9', '0', '!', '@', '#', '$', '%', '^', '&', '*', '(', ')', '-', '_', '=', '+', '[', ']', '{', '}', '\\', '|', ';', ':', '\'', '\"', ',', '<', '.', '>', '/', '?', '`', '~']
 def generate_no_repeat():
@@ -12,10 +12,12 @@ def generate_normal_random():
 
 # Console thingy
 def main(error_status):
-    if platform.system() == "Windows":
-        os.system("cls")
-    else:
-        platform.system("clear")
+    try:
+        subprocess.run(["cls"], check=True, shell=True)
+        print("Windows batch 🤮")
+    except subprocess.CalledProcessError:
+        subprocess.run(["clear"], shell=True)
+        print("Not Windows 👍")
     if error_status == 0:
         pass
     if error_status == 1: 
