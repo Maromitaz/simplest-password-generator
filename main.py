@@ -14,7 +14,7 @@ def generate_normal_random():
 def main(error_status):
     try:
         subprocess.run(["cls"], check=True, shell=True)
-        print("Windows batch 🤮")
+        print("Windows 🤮")
     except subprocess.CalledProcessError:
         subprocess.run(["clear"], shell=True)
         print("Not Windows 👍")
