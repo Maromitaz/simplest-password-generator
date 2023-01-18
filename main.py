@@ -14,12 +14,8 @@ def generate_normal_random():
 def main(error_status):
     try:
         subprocess.run(["cls"], check=True, shell=True)
-        print("Windows 🤮")
     except subprocess.CalledProcessError:
         subprocess.run(["clear"], shell=True)
-        print("Not Windows 👍")
-    if error_status == 0:
-        pass
     if error_status == 1: 
         print("Please input a number.\n")
     if error_status == 2:
